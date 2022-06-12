@@ -2,7 +2,7 @@
   <div class="content">
     <div class="content__title flex justify-between items-center mb-5">
       <h1 class="title">{{ title }}</h1>
-      <UiButton> На главную </UiButton>
+      <UiButton v-if="btnTxt"> {{ btnTxt }} </UiButton>
     </div>
     <hr>
     <div class="content__main flex flex-wrap h-full">
@@ -21,8 +21,8 @@ defineProps({
     type: String
   },
   btnTxt: {
-    default: 'Button',
-    required: true,
+    default: '',
+    required: false,
     type: String
   }
 })

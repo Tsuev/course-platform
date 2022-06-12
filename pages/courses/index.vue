@@ -1,5 +1,5 @@
 <template>
-  <BlockContent title="Мои курсы">
+  <BlockContent title="Мои курсы" btnTxt="На главную">
     <BlockCard />
     <BlockCard />
     <BlockCard />
