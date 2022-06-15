@@ -1,10 +1,10 @@
 <template>
   <div class="content">
-    <div class="content__title flex justify-between items-center mb-5">
+    <div v-if="title" class="content__title flex justify-between items-center mb-5">
       <h1 class="title">{{ title }}</h1>
       <UiButton v-if="btnTxt"> {{ btnTxt }} </UiButton>
     </div>
-    <hr>
+    <hr v-if="title">
     <div class="content__main flex flex-wrap h-full">
       <slot>
 

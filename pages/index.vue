@@ -1,5 +1,5 @@
 <template>
-    <section class="flex flex-col justify-center items-center py-52">
+    <section class="flex flex-col justify-center items-center">
         <svg width="362" height="481">
             <use x="-75" y="-15" href="@/assets/img/logo.svg#logo" />
         </svg>

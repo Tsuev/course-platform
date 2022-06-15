@@ -1,7 +1,7 @@
 <template>
   <BlockContent title="Настройка среды" btnTxt="Страница курса">
     <div class="video w-full my-5">
-      <iframe width="100%" height="500" src="https://www.youtube.com/embed/nXydfloXHMY" title="YouTube video player"
+      <iframe width="100%" height="500" src="https://www.youtube.com/embed/qLblBEtINKs" title="YouTube video player"
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
     </div>
