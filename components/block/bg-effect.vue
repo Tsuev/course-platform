@@ -9,6 +9,7 @@
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
+    <div class="star"></div>
   </div>
 </template>
 
@@ -16,6 +17,8 @@
 </script>
 
 <style lang='scss' scoped>
+@use "sass:math";
+
 @mixin sp-layout {
   @media screen and (max-width: 750px) {
     @content;
@@ -32,14 +35,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 120%;
   height: 120%;
   transform: rotate(-45deg);
   z-index: -1;
 }
 
 .star {
-  $star-count: 50;
+  $star-count: 10;
   --star-color: var(--primary-color);
   --star-tail-length: 6em;
   --star-tail-height: 2px;
@@ -66,10 +69,10 @@
 
   @for $i from 1 through $star-count {
     &:nth-child(#{$i}) {
-      --star-tail-length: #{random_range(500em, 750em) / 100};
-      --top-offset: #{random_range(0vh, 10000vh) / 100};
-      --fall-duration: #{random_range(6000, 12000s) / 1000};
-      --fall-delay: #{random_range(0, 10000s) / 1000};
+      --star-tail-length: #{math.div(random_range(500em, 750em), 100)};
+      --top-offset: #{math.div(random_range(100vh, 10000vh), 100)};
+      --fall-duration: #{math.div(random_range(6000, 12000s), 1000)};
+      --fall-delay: #{math.div(random_range(0, 10000s), 1000)};
     }
   }
 

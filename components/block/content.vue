@@ -17,7 +17,7 @@
 defineProps({
   title: {
     default: '',
-    required: true,
+    required: false,
     type: String
   },
   btnTxt: {
