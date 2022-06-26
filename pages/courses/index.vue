@@ -2,7 +2,7 @@
   <BlockContent title="Мои курсы" btnTxt="На главную">
     <BlockCard />
     <BlockCard />
-    <BlockCard />
+    <block-card />
     <BlockCard />
     <BlockCard />
   </BlockContent>

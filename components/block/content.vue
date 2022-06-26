@@ -1,14 +1,15 @@
 <template>
   <div class="content">
-    <div v-if="title" class="content__title flex justify-between items-center mb-5">
+    <div
+      v-if="title"
+      class="content__title flex justify-between items-center mb-5"
+    >
       <h1 class="title">{{ title }}</h1>
-      <UiButton v-if="btnTxt"> {{ btnTxt }} </UiButton>
+      <UiButton @click="$router.go(-1)" v-if="btnTxt"> {{ btnTxt }}</UiButton>
     </div>
-    <hr v-if="title">
+    <hr v-if="title" />
     <div class="content__main flex flex-wrap h-full">
-      <slot>
-
-      </slot>
+      <slot> </slot>
     </div>
   </div>
 </template>
@@ -28,7 +29,7 @@ defineProps({
 })
 </script>
 
-<style lang='scss'>
+<style lang="scss">
 .content {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;

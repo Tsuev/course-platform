@@ -1,30 +1,44 @@
 <template>
   <div class="header w-full h-28">
-    <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon" />
-    <label for="menu-icon"></label>
-    <nav class="nav">
-      <ul class="pt-5">
-        <li><a href="#">Профиль</a></li>
-        <li><a href="#">ЛК</a></li>
-        <li><a href="#">Курсы</a></li>
-        <li><a href="#">Поддержка</a></li>
-      </ul>
-    </nav>
+    <div class="">
+      <input
+        class="menu-icon"
+        v-model="check"
+        type="checkbox"
+        id="menu-icon"
+        name="menu-icon"
+      />
+      <label for="menu-icon"></label>
+      <nav class="nav">
+        <ul class="pt-5">
+          <li><NuxtLink @click="check = false" to="/">Главная</NuxtLink></li>
+          <li>
+            <NuxtLink @click="check = false" to="/profile">Профиль</NuxtLink>
+          </li>
+          <li><a @click="check = false" href="#">ЛК</a></li>
+          <li>
+            <NuxtLink @click="check = false" to="/courses">Курсы</NuxtLink>
+          </li>
+          <li><a @click="check = false" href="#">Поддержка</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </template>
 
 <script setup>
+let check = ref(false)
 </script>
 
-<style lang='scss'>
-[type="checkbox"]:checked,
-[type="checkbox"]:not(:checked) {
+<style lang="scss">
+[type='checkbox']:checked,
+[type='checkbox']:not(:checked) {
   position: absolute;
   left: -9999px;
 }
 
-.menu-icon:checked+label,
-.menu-icon:not(:checked)+label {
+.menu-icon:checked + label,
+.menu-icon:not(:checked) + label {
   position: fixed;
   top: 63px;
   right: 75px;
@@ -37,8 +51,8 @@
   z-index: 10;
 }
 
-.menu-icon:checked+label:before,
-.menu-icon:not(:checked)+label:before {
+.menu-icon:checked + label:before,
+.menu-icon:not(:checked) + label:before {
   position: absolute;
   content: '';
   display: block;
@@ -52,12 +66,11 @@
   transition: border-width 100ms 1500ms ease,
     top 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
     height 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
-    background-color 200ms ease,
-    transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+    background-color 200ms ease, transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.menu-icon:checked+label:after,
-.menu-icon:not(:checked)+label:after {
+.menu-icon:checked + label:after,
+.menu-icon:not(:checked) + label:after {
   position: absolute;
   content: '';
   display: block;
@@ -68,13 +81,11 @@
   right: 4px;
   background-color: #ececee;
   margin-top: -1px;
-  transition: width 100ms 1750ms ease,
-    right 100ms 1750ms ease,
-    margin-top 100ms ease,
-    transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: width 100ms 1750ms ease, right 100ms 1750ms ease,
+    margin-top 100ms ease, transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.menu-icon:checked+label:before {
+.menu-icon:checked + label:before {
   top: 10px;
   transform: rotate(45deg);
   height: 2px;
@@ -87,14 +98,12 @@
     transform 200ms 1700ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.menu-icon:checked+label:after {
+.menu-icon:checked + label:after {
   width: 30px;
   margin-top: 0;
   right: 0;
   transform: rotate(-45deg);
-  transition: width 100ms ease,
-    right 100ms ease,
-    margin-top 100ms 500ms ease,
+  transition: width 100ms ease, right 100ms ease, margin-top 100ms 500ms ease,
     transform 200ms 1700ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -110,9 +119,9 @@
   z-index: 9;
   overflow: hidden;
   box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.3);
-  background: #00F260;
-  background: -webkit-linear-gradient(to right, #0575E6, #00F260);
-  background: linear-gradient(to right, #0575E6, #00F260);
+  background: #00f260;
+  background: -webkit-linear-gradient(to right, #0575e6, #00f260);
+  background: linear-gradient(to right, #0575e6, #00f260);
   animation: border-transform 7s linear infinite;
   transition: top 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),
     right 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),
@@ -122,7 +131,6 @@
 }
 
 @keyframes border-transform {
-
   0%,
   100% {
     border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
@@ -153,7 +161,7 @@
   }
 }
 
-.menu-icon:checked~.nav {
+.menu-icon:checked ~ .nav {
   animation-play-state: paused;
   top: 50%;
   right: 50%;
@@ -161,8 +169,7 @@
   width: 200%;
   height: 200%;
   transition: top 350ms 700ms cubic-bezier(0.23, 1, 0.32, 1),
-    right 350ms 700ms cubic-bezier(0.23, 1, 0.32, 1),
-    transform 250ms 700ms ease,
+    right 350ms 700ms cubic-bezier(0.23, 1, 0.32, 1), transform 250ms 700ms ease,
     width 750ms 1000ms cubic-bezier(0.23, 1, 0.32, 1),
     height 750ms 1000ms cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -226,7 +233,7 @@
 
 .nav ul li a:hover {
   transform: translateY(-10px);
-  text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.295)
+  text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.295);
 }
 
 // .nav ul li a:after {
@@ -247,33 +254,29 @@
 //   width: 100%;
 // }
 
-
-.menu-icon:checked~.nav ul li {
+.menu-icon:checked ~ .nav ul li {
   pointer-events: auto;
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 350ms ease,
-    transform 250ms ease;
+  transition: opacity 350ms ease, transform 250ms ease;
 }
 
-.menu-icon:checked~.nav ul li:nth-child(1) {
+.menu-icon:checked ~ .nav ul li:nth-child(1) {
   transition-delay: 1400ms;
 }
 
-.menu-icon:checked~.nav ul li:nth-child(2) {
+.menu-icon:checked ~ .nav ul li:nth-child(2) {
   transition-delay: 1480ms;
 }
 
-.menu-icon:checked~.nav ul li:nth-child(3) {
+.menu-icon:checked ~ .nav ul li:nth-child(3) {
   transition-delay: 1560ms;
 }
 
-.menu-icon:checked~.nav ul li:nth-child(4) {
+.menu-icon:checked ~ .nav ul li:nth-child(4) {
   transition-delay: 1640ms;
 }
-
-
 
 .logo {
   position: absolute;
@@ -290,12 +293,9 @@
   display: block;
 }
 
-
-
 @media screen and (max-width: 991px) {
-
-  .menu-icon:checked+label,
-  .menu-icon:not(:checked)+label {
+  .menu-icon:checked + label,
+  .menu-icon:not(:checked) + label {
     right: 55px;
   }
 

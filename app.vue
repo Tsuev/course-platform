@@ -7,11 +7,13 @@
 </template>
 
 <script>
-import '@/assets/css/tailwind.css'
-</script> 
+import '@/assets/scss/tailwind.css'
+</script>
 
 <style>
 .wrapper {
   padding: 30px;
+  max-width: 1220px;
+  margin: 0 auto;
 }
 </style>
